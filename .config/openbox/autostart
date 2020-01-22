@@ -30,7 +30,7 @@ sleep 1; tint2 -c $HOME/.config/tint2/popside/popside-red.tint2rc &
 
 ### launch conky
 #manjaro-conky-session &
-conky -c $HOME/.config/conky/geddy/geddy.conkyrc
+conky -c $HOME/.config/conky/geddy/geddy.conkyrc &
 
 ### volumeicon
 sleep 1; volumeicon &
@@ -39,7 +39,7 @@ sleep 1; volumeicon &
 skippy-xd --config ~/.config/skippy-xd/skippy-xd.rc --start-daemon &
 
 ## super key for menu
-# xcape -e 'Super_L=Alt_L|F1' &
+xcape -e 'Super_L=Alt_L|F1' &
 
 ### PolicyKit authentication
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -50,4 +50,3 @@ xdg-user-dirs-gtk-update &
 ### enable numlock
 ### uncomment next line
 #numlockx &
-

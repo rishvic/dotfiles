@@ -16,7 +16,7 @@ static int borderpx = 10;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/zsh";
+static char *shell = "/bin/sh";
 char *utmp = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
@@ -97,24 +97,30 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#292f34",
-	"#ab4642",
-	"#99cc99",
-	"#f7ca88",
-	"#006a78",
+	"#4b5262",
+	"#bf616a",
+	"#a3be8c",
+	"#ebcb8b",
+	"#81a1c1",
 	"#b48ead",
-	"#1abb9b",
-	"#d8d8d8",
+	"#88c0d0",
+	"#e5e9f0",
 
 	/* 8 bright colors */
-	"#0a6355",
-	"#ab4642",
-	"#99cc99",
-	"#f7ca88",
-	"#006a78",
-	"#b48ead",
-	"#1abb9b",
-	"#f8f8f8",
+	"#434a5a",
+	"#b3555e",
+	"#93ae7c",
+	"#dbbb7b",
+	"#7191b1",
+	"#a6809f",
+	"#76aebe",
+	"#d1d5dc",
+
+    [255] = 0,
+
+    "#d8dee8",
+    "#2f343f",
+    "#b48ead",
 };
 
 
@@ -122,10 +128,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 7;
-static unsigned int defaultrcs = 7;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+static unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 258;
 
 /*
  * Default shape of cursor

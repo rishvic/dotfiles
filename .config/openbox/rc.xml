@@ -146,7 +146,9 @@
       </action>
     </keybind>
     <keybind key="W-0">
-      <action name="ToggleDecorations"/>
+      <action name="GoToDesktop">
+        <to>10</to>
+      </action>
     </keybind>
     <keybind key="C-W-1">
       <action name="SendToDesktop">
@@ -208,15 +210,23 @@
         </finalactions>
       </action>
     </keybind>
+    <keybind key="W-A-Tab">
+      <action name="NextWindow">
+        <raise>yes</raise>
+        <allDesktops>no</allDesktops>
+        <finalactions>
+          <action name="Focus"/>
+          <action name="UnshadeRaise"/>
+        </finalactions>
+      </action>
+    </keybind>
     <keybind key="W-Tab">
       <action name="NextWindow">
-        <allDesktops>yes</allDesktops>
+        <raise>yes</raise>
+        <allDesktops>no</allDesktops>
         <finalactions>
-          <action name="SendToDesktop">
-            <desktop>1</desktop>
-          </action>
-          <action name="focus"/>
-          <action name="raise"/>
+          <action name="Focus"/>
+          <action name="UnshadeRaise"/>
         </finalactions>
       </action>
     </keybind>
@@ -253,7 +263,7 @@
       <action name="MoveResizeTo">
         <x>-15</x>
         <y>15</y>
-        <width>48%</width>
+        <width>47%</width>
         <height>96%</height>
       </action>
     </keybind>
@@ -262,7 +272,7 @@
       <action name="MoveResizeTo">
         <x>15</x>
         <y>15</y>
-        <width>48%</width>
+        <width>47%</width>
         <height>96%</height>
       </action>
     </keybind>
@@ -415,12 +425,12 @@
     </keybind>
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command>brightnessControl.sh up</command>
+        <command>xbacklight +10</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command>brightnessControl.sh down</command>
+        <command>xbacklight -10</command>
       </action>
     </keybind>
     <keybind key="Print">
@@ -450,7 +460,7 @@
     </keybind>
     <keybind key="W-e">
       <action name="Execute">
-        <command>xed</command>
+        <command>micro</command>
       </action>
     </keybind>
     <keybind key="C-A-m">
@@ -504,7 +514,7 @@
     </keybind>
     <keybind key="A-F2">
       <action name="Execute">
-        <command>rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Noto Sans 8"</command>
+        <command>rofr.sh -r</command>
       </action>
     </keybind>
     <keybind key="A-F4">

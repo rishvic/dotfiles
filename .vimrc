@@ -1,10 +1,3 @@
-call plug#begin()
-
-" tpope plugins
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-commentary'
-
-call plug#end()
 "                                 ___     
 "        ___        ___          /__/\    
 "       /__/\      /  /\        |  |::\   
@@ -17,9 +10,16 @@ call plug#end()
 "     \__\::::/      \__\/      \  \:\    
 "         ~~~~                   \__\/    
 
+call plug#begin('~/.vim/plugged')
+
+" tpope plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
  " Set compatibility to Vim only.
 set nocompatible
-set t_Co=16
 
 "Always show current position
 set ruler
@@ -34,7 +34,6 @@ set modelines=0
 " set textwidth=80
 set formatoptions=tcqrn1
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set noshiftround
 
 " Ignore case when searching
 set ignorecase
@@ -49,7 +48,7 @@ set lazyredraw
 set magic
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5
+"set scrolloff=5
 " Fixes common backspace problems
 set backspace=indent,eol,start
 
@@ -67,7 +66,7 @@ set matchpairs+=<:>
 
 " Show line numbers
 set nu rnu
-highlight LineNr ctermfg=yellow
+highlight LineNr ctermfg=black
 
 " Set status line display
 set laststatus=2
@@ -95,6 +94,9 @@ set statusline+=\                   " Padding
 
 " Encoding
 set encoding=utf-8
+
+" Highlight matching search patterns
+"set hlsearch
 
 " Enable incremental search
 set incsearch

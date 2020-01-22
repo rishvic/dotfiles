@@ -9,17 +9,17 @@
 # Addy
 
 # Open Weather Map API code, register to http://openweathermap.org to get one ;)
-API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # Check on http://openweathermap.org/find
-CITY_ID="xxxxxxxxxx"
+CITY_ID="xxxxxxxxxxx"
 
 ICON_SUNNY="  Clear"
 ICON_CLOUDY="  Cloudy"
 ICON_RAINY="  Rainy"
 ICON_STORM="  Storm"
 ICON_SNOW="  Snow"
-ICON_FOG="🌫  Fog"
+ICON_FOG="  Fog"
 ICON_MISC=" "
 
 TEXT_SUNNY="Clear"
