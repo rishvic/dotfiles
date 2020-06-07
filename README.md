@@ -7,3 +7,5 @@ My personal config, shamelessly stolen from [this post](https://www.reddit.com/r
 * Terminal font: Source Code Pro ([link](https://fonts.adobe.com/fonts/source-code-pro))
 * Icon theme: Arc Icon Theme ([link](https://github.com/horst3180/arc-icon-theme)), modified with Blocks ([link](https://github.com/addy-dclxvi/gtk-theme-collections/tree/master/Bonus))
 
+Note: I don't use this setup nowadays, it's from a pretty old setup. Out of date.
+
