@@ -32,7 +32,7 @@ mpd_connection_timeout = 5
 ##
 mpd_music_dir = ~/Music
 #
-mpd_crossfade_time = 0
+#mpd_crossfade_time = 5
 #
 ##### music visualizer #####
 ##
@@ -71,7 +71,7 @@ visualizer_in_stereo = yes
 ## that sane values start with >=10.
 ##
 #
-#visualizer_sync_interval = 30
+visualizer_sync_interval = 30
 #
 ##
 ## Note: To enable spectrum frequency visualization you need to compile ncmpcpp
@@ -82,7 +82,7 @@ visualizer_in_stereo = yes
 ##
 visualizer_type = spectrum
 #
-visualizer_look = ●┃
+visualizer_look = ●▮
 #
 #visualizer_color = blue, cyan, green, yellow, magenta, red
 #
@@ -183,13 +183,10 @@ visualizer_look = ●┃
 ##
 #
 #song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
-song_list_format = "  {{$0%t $R $4%a$9}|{%f}        }{$R%l}"
 #
 #song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
-song_status_format = "{{%a{ "%b"{ (%y)}} - }{%t$/b}}|{$b%f$/b} ♫"
 #
 #song_library_format = {%n - }{%t}|{%f}
-song_library_format = {{%a - %t} (%b)}|{%f}
 #
 #alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 #
@@ -204,10 +201,8 @@ song_library_format = {{%a - %t} (%b)}|{%f}
 #current_item_inactive_column_suffix = $/r$(end)
 #
 #now_playing_prefix = $b
-now_playing_prefix = "$b$5 "
 #
 #now_playing_suffix = $/b
-now_playing_suffix = "$/b$9"
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
@@ -346,11 +341,11 @@ progressbar_look = ─┨
 #
 #default_tag_editor_pattern = %n - %t
 #
-header_visibility = no
+#header_visibility = yes
 #
-statusbar_visibility = no
+#statusbar_visibility = yes
 #
-titles_visibility = yes
+#titles_visibility = yes
 #
 #header_text_scrolling = yes
 #
@@ -436,7 +431,7 @@ titles_visibility = yes
 ## Note: if below is enabled, ncmpcpp will ignore leading "The" word while
 ## sorting items in browser, tags in media library, etc.
 ##
-ignore_leading_the = yes
+#ignore_leading_the = no
 #
 ##
 ## Note: if below is enabled, ncmpcpp will ignore diacritics while searching and
@@ -477,7 +472,7 @@ ignore_leading_the = yes
 #
 #search_engine_default_search_mode = 1
 #
-external_editor = vim
+#external_editor = nano
 #
 ## Note: set to yes if external editor is a console application.
 ##

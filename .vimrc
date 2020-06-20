@@ -1,112 +1,75 @@
-"                                 ___     
-"        ___        ___          /__/\    
-"       /__/\      /  /\        |  |::\   
-"       \  \:\    /  /:/        |  |:|:\  
-"        \  \:\  /__/::\      __|__|:|\:\ 
-"    ___  \__\:\ \__\/\:\__  /__/::::| \:\
-"   /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/
-"   \  \:\|  |:|     \__\::/  \  \:\      
-"    \  \:\__|:|     /__/:/    \  \:\     
-"     \__\::::/      \__\/      \  \:\    
-"         ~~~~                   \__\/    
+" An example for a vimrc file.
+"
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last change:	2019 Dec 17
+"
+" To use it, copy it to
+"	       for Unix:  ~/.vimrc
+"	      for Amiga:  s:.vimrc
+"	 for MS-Windows:  $VIM\_vimrc
+"	      for Haiku:  ~/config/settings/vim/vimrc
+"	    for OpenVMS:  sys$login:.vimrc
 
-call plug#begin('~/.vim/plugged')
+" When started as "evim", evim.vim will already have done these settings, bail
+" out.
+if v:progname =~? "evim"
+  finish
+endif
 
-" tpope plugins
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
+if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+else
+  set backup		" keep a backup file (restore to previous version)
+  if has('persistent_undo')
+    set undofile	" keep an undo file (undo changes after closing)
+  endif
+endif
+
+if &t_Co > 2 || has("gui_running")
+  " Switch on highlighting the last used search pattern.
+  set hlsearch
+endif
+
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+augroup END
+
+" Add optional packages.
+"
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+if has('syntax') && has('eval')
+  packadd! matchit
+endif
+
+call plug#begin()
+
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-commentary'
+
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
 
- " Set compatibility to Vim only.
-set nocompatible
-
-"Always show current position
-set ruler
-
-" Turn on syntax highlighting.
-syntax on
-
-" Turn off modelines
-set modelines=0
-
-" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
-" set textwidth=80
-set formatoptions=tcqrn1
+set nu rnu
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
-set smartcase
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" For regular expressions turn magic on
-set magic
-
-" Display 5 lines above/below the cursor when scrolling with a mouse.
-"set scrolloff=5
-" Fixes common backspace problems
-set backspace=indent,eol,start
-
-" Display options
-set showmode
-set showcmd
-set cmdheight=1
-
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
-
-" Display different types of white spaces.
-"set list
-"set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-
-" Show line numbers
-set nu rnu
-highlight LineNr ctermfg=black
-
-" Set status line display
-set laststatus=2
-hi StatusLine ctermfg=NONE ctermbg=red cterm=NONE
-hi StatusLineNC ctermfg=black ctermbg=red cterm=NONE
-hi User1 ctermfg=black ctermbg=magenta
-hi User2 ctermfg=NONE ctermbg=NONE
-hi User3 ctermfg=black ctermbg=blue
-hi User4 ctermfg=black ctermbg=cyan
-set statusline=\                    " Padding
-set statusline+=%f                  " Path to the file
-set statusline+=\ %1*\              " Padding & switch colour
-set statusline+=%y                  " File type
-set statusline+=\ %2*\              " Padding & switch colour
-set statusline+=%=                  " Switch to right-side
-set statusline+=\ %3*\              " Padding & switch colour
-set statusline+=line                " of Text
-set statusline+=\                   " Padding
-set statusline+=%l                  " Current line
-set statusline+=\ %4*\              " Padding & switch colour
-set statusline+=of                  " of Text
-set statusline+=\                   " Padding
-set statusline+=%L                  " Total line
-set statusline+=\                   " Padding
-
-" Encoding
-set encoding=utf-8
-
-" Highlight matching search patterns
-"set hlsearch
-
-" Enable incremental search
-set incsearch
-
-" Include matching uppercase words with lowercase search term
-set ignorecase
-
-" Include only uppercase words with uppercase search term
-set smartcase
-
-" Store info from no more than 100 files at a time, 9999 lines of text
-" 100kb of data. Useful for copying large amounts of data between files.
-set viminfo='100,<9999,s100
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
